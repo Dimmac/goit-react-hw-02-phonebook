@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 export const FormPhoneBook = styled.form`
-  border-color: black;
-  border-style: solid;
+  border: solid 1px;
   padding: 20px;
   display: flex;
   flex-direction: column;

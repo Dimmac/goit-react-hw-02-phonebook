@@ -1,10 +1,8 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-
 import ContactForm from './Form/Form';
 import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
-
 import { Container } from './App.global.styled';
 import { TitlePhoneBook, TitleContacts, Section } from './App.styled';
 
@@ -24,7 +22,6 @@ export default class App extends Component {
   formSubmitHandler = data => {
     const { name } = data;
     const normalizedNameContact = name.toLowerCase();
-
     const newId = { id: nanoid(), ...data };
 
     this.findContactName(normalizedNameContact)
@@ -32,8 +29,6 @@ export default class App extends Component {
       : this.setState(previousState => {
           return { contacts: [...previousState.contacts, newId] };
         });
-
-    console.log(newId);
   };
 
   findContactName = nameData => {

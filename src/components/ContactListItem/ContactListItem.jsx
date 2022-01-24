@@ -1,11 +1,8 @@
 import PropTypes from 'prop-types';
-
 import { ListItemStyle, NameContactStyle, ButtonContactStyle } from './ContactListItem.styled';
 
 const ContactListItem = ({ data, onDeleteContact }) => {
   const { number, name, id } = data;
-
-  /* console.log(data); */
   return (
     <ListItemStyle>
       <NameContactStyle>{name}:</NameContactStyle>
@@ -16,7 +13,6 @@ const ContactListItem = ({ data, onDeleteContact }) => {
     </ListItemStyle>
   );
 };
-
 export default ContactListItem;
 
 ContactListItem.propTypes = {

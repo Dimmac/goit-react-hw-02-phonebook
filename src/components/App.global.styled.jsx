@@ -1,9 +1,6 @@
 import createGlobalStyle from 'styled-components';
 
 export const Container = createGlobalStyle.div`
-
-  /*-----Скидування стилів------*/
-
 html {
   box-sizing: border-box;
 }
@@ -30,7 +27,7 @@ ol {
 img {
   display: block;
 }
-/*-------------Body--------------*/
+
 body {
   background-color: #ffffff;
   width: 100%;
