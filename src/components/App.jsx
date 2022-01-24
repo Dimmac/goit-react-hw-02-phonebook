@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
 
-// import ContactForm from './components/Form/Form';
+import ContactForm from './Form/Form';
 // import Filter from './components/Filter/Filter';
 import ContactList from './ContactList/ContactList';
 
@@ -33,7 +33,7 @@ export default class App extends Component {
           return { contacts: [...previousState.contacts, newId] };
         });
 
-    /* console.log(newId); */
+    console.log(newId);
   };
 
   findContactName = nameData => {
@@ -66,7 +66,7 @@ export default class App extends Component {
       <Container>
         <Section>
           <TitlePhoneBook>Phonebook</TitlePhoneBook>
-          {/* <ContactForm formSubmit={this.formSubmitHandler}></ContactForm> */}
+          <ContactForm formSubmit={this.formSubmitHandler}></ContactForm>
         </Section>
 
         <Section>
