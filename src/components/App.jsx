@@ -58,7 +58,7 @@ export default class App extends Component {
   };
 
   render() {
-    const { filter } = this.state;
+    // const { filter } = this.state;
 
     const visibleContact = this.getFilterContact();
 
