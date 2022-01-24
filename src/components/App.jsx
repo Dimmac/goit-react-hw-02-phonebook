@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { nanoid } from 'nanoid';
 
 import ContactForm from './Form/Form';
-// import Filter from './components/Filter/Filter';
+import Filter from './Filter/Filter';
 import ContactList from './ContactList/ContactList';
 
 import { Container } from './App.global.styled';
@@ -58,7 +58,7 @@ export default class App extends Component {
   };
 
   render() {
-    // const { filter } = this.state;
+    const { filter } = this.state;
 
     const visibleContact = this.getFilterContact();
 
@@ -72,7 +72,7 @@ export default class App extends Component {
         <Section>
           <TitleContacts>Contacts</TitleContacts>
 
-          {/* <Filter value={filter} onChange={this.changeFilter}></Filter> */}
+          <Filter value={filter} onChange={this.changeFilter}></Filter>
 
           <ContactList
             visibleContact={visibleContact}
