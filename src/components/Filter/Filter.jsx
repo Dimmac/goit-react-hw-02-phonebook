@@ -1,10 +1,8 @@
 import { nanoid } from 'nanoid';
 import PropTypes from 'prop-types';
-
 import { LabelFilterStyle, InputFilterStyle } from './Filter.styled';
 
 const generateId = nanoid();
-
 const Filter = ({ value, onChange }) => {
   return (
     <LabelFilterStyle htmlFor={generateId}>
@@ -20,9 +18,7 @@ const Filter = ({ value, onChange }) => {
     </LabelFilterStyle>
   );
 };
-
 export default Filter;
-
 Filter.propTypes = {
   value: PropTypes.string.isRequired,
   onChange: PropTypes.func.isRequired,

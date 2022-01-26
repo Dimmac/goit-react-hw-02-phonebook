@@ -1,40 +1,33 @@
 import { Component } from 'react';
 import { nanoid } from 'nanoid';
-
 import { FormPhoneBook, LabelPhoneBook, InputPhoneBook, ButtonPhoneBook } from './Form.styled';
+import PropTypes from 'prop-types'
 
 export default class ContactForm extends Component {
+  static propTypes = {
+    onSubmit: PropTypes.func.isRequired,
+  };
   state = {
     name: '',
     number: '',
   };
-
-  nameInputId = nanoid();
-  numberInputId = nanoid();
-
   handleNameChange = event => {
-    event.preventDefault();
-    const { name, value } = event.currentTarget;
-    this.setState({ [name]: value });
+    this.setState({ [event.currentTarget.name]: event.currentTarget.value });
   };
-
   handleSubmit = evt => {
     evt.preventDefault();
-
-    this.props.formSubmit(this.state);
-
+    const id = nanoid();
+    this.props.onSubmit({ id, ...this.state });
     this.reset();
   };
-
   reset = () => {
     this.setState({ name: '', number: '' });
   };
   render() {
     const { name, number } = this.state;
-
     return (
       <FormPhoneBook onSubmit={this.handleSubmit}>
-        <LabelPhoneBook htmlFor={this.nameInputId}>
+        <LabelPhoneBook>
           Name
           <InputPhoneBook
             type="text"
@@ -44,11 +37,9 @@ export default class ContactForm extends Component {
             required
             autoComplete="off"
             value={name}
-            onChange={this.handleNameChange}
-            id={this.nameInputId}
-          />
+            onChange={this.handleNameChange}/>
         </LabelPhoneBook>
-        <LabelPhoneBook htmlFor={this.numberInputId}>
+        <LabelPhoneBook>
           Number
           <InputPhoneBook
             type="tel"
@@ -58,9 +49,7 @@ export default class ContactForm extends Component {
             required
             autoComplete="off"
             value={number}
-            onChange={this.handleNameChange}
-            id={this.numberInputId}
-          />
+            onChange={this.handleNameChange}/>
         </LabelPhoneBook>
         <ButtonPhoneBook type="submit">Add contact</ButtonPhoneBook>
       </FormPhoneBook>

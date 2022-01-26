@@ -1,23 +1,19 @@
 import PropTypes from 'prop-types';
-
 import ContactListItem from '../ContactListItem/ContactListItem';
-
 import { ListStyle } from './ContactList.styled';
 
-const ContactList = ({ visibleContact, onDeleteContact }) => {
+const ContactList = ({visibleContact,onDeleteContact}) => {
   return (
     <ListStyle>
-      {visibleContact.map(({ name, id, number }) => {
+      {visibleContact.map((data,id) => {
         return (
-          <ContactListItem key={id} data={{ number, name, id }} onDeleteContact={onDeleteContact} />
+          <ContactListItem key={id} data={data} onDeleteContact={onDeleteContact} />
         );
       })}
     </ListStyle>
   );
 };
-
 export default ContactList;
-
 ContactList.propTypes = {
   visibleContact: PropTypes.array.isRequired,
   onDeleteContact: PropTypes.func.isRequired,

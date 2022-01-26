@@ -14,7 +14,6 @@ const ContactListItem = ({ data, onDeleteContact }) => {
   );
 };
 export default ContactListItem;
-
 ContactListItem.propTypes = {
   data: PropTypes.shape({
     number: PropTypes.string.isRequired,
